@@ -1,0 +1,91 @@
+[
+  {
+    "title": "1. Executive Summary",
+    "defaultOpen": true,
+    "content": "<p>Content for section 1.</p>"
+  },
+  {
+    "title": "2. Brief Background in AI",
+    "content": "<p>Content for section 2.</p>"
+  },
+  {
+    "title": "3. AI's Use in Surveys",
+    "content": "<p>Content for section 3.</p>",
+    "subsections": [
+      {
+        "title": "3.1. AI as a Colleague",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "3.2. AI as a Briefer",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "3.3. AI as an Analyst",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "3.4. AI in Data Collection",
+        "content": "<p>Subsection content here.</p>"
+      }
+    ]
+  },
+  {
+    "title": "4. Evaluation Framework",
+    "content": "<p>Content for section 4.</p>",
+    "subsections": [
+      {
+        "title": "4.1. A Few Do's and Don'ts",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "4.2. Evaluation Criteria",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "4.3. Examples of Evaluation",
+        "content": "<p>Subsection content here.</p>"
+      }
+    ]
+  },
+  {
+    "title": "5. Recommendations for Transparency and Reporting",
+    "content": "<p>Content for section 5.</p>",
+    "subsections": [
+      {
+        "title": "5.1. AAPOR's Disclosure Checklist for the Use of AI in Surveys",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "5.2. Why These Disclosures Matter for Understanding Error and Bias",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "5.3. Examples/Vignettes",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "5.4. Infrastructure and Audience Transparency and Reporting",
+        "content": "<p>Subsection content here.</p>"
+      }
+    ]
+  },
+  {
+    "title": "6. Responsibility to Participants",
+    "content": "<p>Content for section 6.</p>",
+    "subsections": [
+      {
+        "title": "6.1. Transparency and Disclosure",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "6.2. Respondent Protections in the Use of AI for Survey Research",
+        "content": "<p>Subsection content here.</p>"
+      },
+      {
+        "title": "6.3. Ethical Considerations for the Use of AI in Survey Research",
+        "content": "<p>Subsection content here.</p>"
+      }
+    ]
+  }
+]

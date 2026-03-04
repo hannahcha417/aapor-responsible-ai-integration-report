@@ -1,0 +1,42 @@
+[
+  {
+    "id": "q1",
+    "question": "Are you familiar with AI and how it works?",
+    "yesLabel": "Yes, I have a good understanding",
+    "noLabel": "No, I'd like some background",
+    "sectionsIfNo": [1],
+    "description": "If not, read the Brief Background in AI section."
+  },
+  {
+    "id": "q2",
+    "question": "Do you know how AI is currently being used in survey research?",
+    "yesLabel": "Yes, I'm up to speed",
+    "noLabel": "No, tell me more",
+    "sectionsIfNo": [2],
+    "description": "If not, read about AI's Use in Surveys."
+  },
+  {
+    "id": "q3",
+    "question": "Are you looking for a framework to evaluate AI tools for surveys?",
+    "yesLabel": "Yes",
+    "noLabel": "No, not right now",
+    "sectionsIfYes": [3],
+    "description": "If so, read the Evaluation Framework section."
+  },
+  {
+    "id": "q4",
+    "question": "Do you need guidance on transparency and reporting when using AI?",
+    "yesLabel": "Yes",
+    "noLabel": "No",
+    "sectionsIfYes": [4],
+    "description": "If so, read the Recommendations for Transparency and Reporting section."
+  },
+  {
+    "id": "q5",
+    "question": "Are you concerned about the impact of AI on survey participants?",
+    "yesLabel": "Yes",
+    "noLabel": "No",
+    "sectionsIfYes": [5],
+    "description": "If so, read the Responsibility to Participants section."
+  }
+]
