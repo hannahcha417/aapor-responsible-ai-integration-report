@@ -22,6 +22,28 @@ header p {
   font-size: 0.95rem;
 }
 
+/* ── Abstract ─────────────────────────────────── */
+.abstract {
+  text-align: left;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.abstract p {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.abstract p:last-child {
+  margin-bottom: 0;
+}
+
 /* ── Utility Buttons ──────────────────────────── */
 .controls {
   display: flex;

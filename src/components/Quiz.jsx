@@ -1,5 +1,5 @@
 import { useState } from "react";
-import quizData from "../data/quiz.json";
+import quizData from "../data/quiz.js";
 import "./Quiz.css";
 
 function Quiz({ onComplete }) {

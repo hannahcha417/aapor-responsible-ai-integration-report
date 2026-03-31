@@ -9,6 +9,17 @@ function Subsection({ title, html }) {
         className="subsection-content"
         dangerouslySetInnerHTML={{ __html: html }}
       />
+      <button
+        className="collapse-btn"
+        onClick={(e) => {
+          e.target.closest("details").open = false;
+          e.target
+            .closest("details")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+      >
+        ▲ Collapse
+      </button>
     </details>
   );
 }
@@ -40,6 +51,17 @@ const Section = forwardRef(function Section(
             ))}
           </div>
         )}
+        <button
+          className="collapse-btn"
+          onClick={(e) => {
+            e.target.closest("details").open = false;
+            e.target
+              .closest("details")
+              .scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+        >
+          ▲ Collapse
+        </button>
       </div>
     </details>
   );
