@@ -1,0 +1,143 @@
+/* ── Toggle Button ─────────────────────────────── */
+.toc-toggle {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 1100;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.15s;
+}
+
+.toc-toggle:hover {
+  background: #eaeaea;
+}
+
+/* ── Overlay ──────────────────────────────────── */
+.toc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1200;
+}
+
+/* ── Sidebar Panel ────────────────────────────── */
+.toc-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  background: #fff;
+  z-index: 1300;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
+}
+
+.toc-sidebar.toc-open {
+  transform: translateX(0);
+}
+
+/* ── Header Row ───────────────────────────────── */
+.toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+}
+
+.toc-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #555;
+  padding: 0.2rem 0.4rem;
+}
+
+.toc-close:hover {
+  color: #000;
+}
+
+/* ── Scrollable List ──────────────────────────── */
+.toc-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1rem 2rem;
+  margin: 0;
+  list-style: none;
+}
+
+.toc-list ul {
+  list-style: none;
+  padding-left: 0.85rem;
+  margin: 0;
+}
+
+.toc-list li {
+  margin: 0.15rem 0;
+}
+
+/* ── Depth-based styling ──────────────────────── */
+.toc-depth-0 > .toc-link,
+.toc-depth-0 > .toc-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #222;
+}
+
+.toc-depth-1 > .toc-link,
+.toc-depth-1 > .toc-label {
+  font-weight: 500;
+  font-size: 0.83rem;
+  color: #333;
+}
+
+.toc-depth-2 > .toc-link,
+.toc-depth-2 > .toc-label {
+  font-weight: 400;
+  font-size: 0.79rem;
+  color: #555;
+}
+
+.toc-depth-3 > .toc-link,
+.toc-depth-3 > .toc-label {
+  font-weight: 400;
+  font-size: 0.76rem;
+  color: #666;
+}
+
+/* ── Clickable vs plain labels ────────────────── */
+.toc-link {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.15rem 0;
+  transition: color 0.15s;
+}
+
+.toc-link:hover {
+  color: #1a73e8;
+}
+
+.toc-label {
+  display: inline-block;
+  padding: 0.15rem 0;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 480px) {
+  .toc-sidebar {
+    width: 85vw;
+  }
+}

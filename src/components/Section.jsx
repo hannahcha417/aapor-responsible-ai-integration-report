@@ -25,7 +25,7 @@ function Subsection({ title, html }) {
 }
 
 const Section = forwardRef(function Section(
-  { title, defaultOpen, html, highlighted, subsections },
+  { id, title, defaultOpen, html, highlighted, subsections },
   ref,
 ) {
   const className = ["section", highlighted && "section--highlighted"]
@@ -34,6 +34,7 @@ const Section = forwardRef(function Section(
 
   return (
     <details
+      id={id}
       className={className}
       open={defaultOpen || highlighted || undefined}
       ref={ref}

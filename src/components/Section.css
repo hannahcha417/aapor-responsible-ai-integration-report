@@ -63,6 +63,53 @@
   margin-bottom: 0.3rem;
 }
 
+/* ── Tables ────────────────────────────────────── */
+.section-content table,
+.subsection-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.section-content table caption,
+.subsection-content table caption {
+  caption-side: bottom;
+  text-align: left;
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.section-content th,
+.subsection-content th {
+  background: #f5f5f5;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+}
+
+.section-content td,
+.subsection-content td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+
+.section-content tbody tr:nth-child(even),
+.subsection-content tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* ── Hanging-indent references ─────────────────── */
+.references p {
+  padding-left: 2rem;
+  text-indent: -2rem;
+  margin-bottom: 0.6rem;
+}
+
 /* ── Subsections ───────────────────────────────── */
 .subsections {
   margin-top: 0.75rem;
@@ -73,6 +120,7 @@
   border: 1px solid #eaeaea;
   border-radius: 6px;
   margin-bottom: 0.6rem;
+  overflow: hidden;
   transition: box-shadow 0.2s;
 }
 
@@ -130,7 +178,7 @@
 /* ── Collapse button at bottom ────────────────── */
 .collapse-btn {
   display: block;
-  margin: 1rem 0 0.5rem auto;
+  margin: 0.5rem 1.25rem 0.75rem auto;
   background: none;
   border: 1px solid #ccc;
   border-radius: 6px;

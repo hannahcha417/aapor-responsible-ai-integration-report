@@ -13,7 +13,7 @@ async function sha256(message) {
 
 export default function PasswordGate({ children }) {
   const [authenticated, setAuthenticated] = useState(
-    () => sessionStorage.getItem("authenticated") === "true"
+    () => sessionStorage.getItem("authenticated") === "true",
   );
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
