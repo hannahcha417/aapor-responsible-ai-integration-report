@@ -3,6 +3,7 @@ import Section from "./components/Section";
 import Quiz from "./components/Quiz";
 import PasswordGate from "./components/PasswordGate";
 import TableOfContents from "./components/TableOfContents";
+import Glossary from "./components/Glossary";
 import sections from "./data/sections.js";
 import "./App.css";
 
@@ -31,6 +32,7 @@ function App() {
   return (
     <PasswordGate>
       <TableOfContents />
+      <Glossary />
       <div className="container">
         <header>
           <h1>

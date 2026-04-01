@@ -1,0 +1,114 @@
+/* ── Toggle Button (right side) ─────────────────── */
+.glossary-toggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1100;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.15s;
+}
+
+.glossary-toggle:hover {
+  background: #eaeaea;
+}
+
+/* ── Overlay ──────────────────────────────────── */
+.glossary-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1200;
+}
+
+/* ── Sidebar Panel (slides from right) ────────── */
+.glossary-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 100vh;
+  background: #fff;
+  z-index: 1300;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+}
+
+.glossary-sidebar.glossary-open {
+  transform: translateX(0);
+}
+
+/* ── Header Row ───────────────────────────────── */
+.glossary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+}
+
+.glossary-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #555;
+  padding: 0.2rem 0.4rem;
+}
+
+.glossary-close:hover {
+  color: #000;
+}
+
+/* ── Scrollable Content ───────────────────────── */
+.glossary-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1.25rem 2rem;
+}
+
+.glossary-body h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.25rem;
+}
+
+.glossary-body h3:first-child {
+  margin-top: 0.25rem;
+}
+
+.glossary-body p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #333;
+  margin-bottom: 0.6rem;
+}
+
+.glossary-body strong {
+  color: #111;
+}
+
+.glossary-body em {
+  color: #666;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 480px) {
+  .glossary-sidebar {
+    width: 90vw;
+  }
+}

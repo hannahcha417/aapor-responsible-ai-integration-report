@@ -184,16 +184,6 @@ const tocData = [
           },
         ],
       },
-      {
-        label: "A2. Glossary",
-        children: [
-          { label: "A2.1 General Terms" },
-          { label: "A2.2 Structural Components" },
-          { label: "A2.3 Processes and Practices" },
-          { label: "A2.4 Models and Applications" },
-          { label: "A2.5 Additional Survey Specific AI Terms" },
-        ],
-      },
     ],
   },
   { label: "References", id: "sec-7" },
