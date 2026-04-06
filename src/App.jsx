@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Section from "./components/Section";
 import Quiz from "./components/Quiz";
 import PasswordGate from "./components/PasswordGate";
@@ -10,6 +10,29 @@ import "./App.css";
 function App() {
   const detailsRefs = useRef([]);
   const [highlightedSections, setHighlightedSections] = useState(null);
+
+  // Global click handler for internal anchor links
+  useEffect(() => {
+    const handler = (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      const id = link.getAttribute("href").slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      // Open all ancestor <details> elements
+      let el = target;
+      while (el) {
+        if (el.tagName === "DETAILS") el.open = true;
+        el = el.parentElement;
+      }
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    };
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
+  }, []);
 
   const handleQuizComplete = (sectionIndices) => {
     setHighlightedSections(sectionIndices);
