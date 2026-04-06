@@ -32,9 +32,10 @@ function applyGlossaryTooltips(root) {
       const p = node.parentElement;
       if (!p) return NodeFilter.FILTER_REJECT;
       const tag = p.tagName;
-      // Skip if already inside a tooltip, heading, strong, or link
+      // Skip if already inside a tooltip, heading, strong, link, or references
       if (
         p.closest(".glossary-tip") ||
+        p.closest(".references") ||
         tag === "STRONG" ||
         tag === "A" ||
         tag === "SUMMARY" ||
@@ -78,6 +79,16 @@ function applyGlossaryTooltips(root) {
       span.textContent = match[1];
       span.setAttribute("data-tip", def);
       const termName = match[1];
+      span.addEventListener("mouseenter", (e) => {
+        const rect = e.target.getBoundingClientRect();
+        const x = Math.min(
+          Math.max(rect.left + rect.width / 2 - 160, 8),
+          window.innerWidth - 328,
+        );
+        const y = rect.top - 8;
+        e.target.style.setProperty("--tip-x", x + "px");
+        e.target.style.setProperty("--tip-y", y + "px");
+      });
       span.addEventListener("click", () => {
         window.dispatchEvent(
           new CustomEvent("glossary-open", { detail: termName }),
@@ -152,7 +163,7 @@ const Section = forwardRef(function Section(
   const contentRef = useRef(null);
   useAutoIds(contentRef);
   useEffect(() => {
-    applyGlossaryTooltips(contentRef.current);
+    if (title !== "References") applyGlossaryTooltips(contentRef.current);
   }, []);
 
   return (

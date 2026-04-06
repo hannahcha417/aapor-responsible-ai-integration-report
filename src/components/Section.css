@@ -231,10 +231,7 @@
 
 .glossary-tip::after {
   content: attr(data-tip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
   background: #1e293b;
   color: #f8fafc;
   font-size: 0.82rem;
@@ -247,9 +244,11 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
-  z-index: 1000;
+  z-index: 10000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin-bottom: 6px;
+  left: var(--tip-x, 0);
+  top: var(--tip-y, 0);
+  transform: translateY(-100%);
 }
 
 .glossary-tip:hover::after {
