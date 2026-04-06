@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Glossary.css";
 
 const glossaryHtml = `
@@ -41,6 +41,33 @@ const glossaryHtml = `
 
 export default function Glossary() {
   const [open, setOpen] = useState(false);
+  const bodyRef = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      const term = e.detail;
+      setOpen(true);
+      setTimeout(() => {
+        if (!bodyRef.current) return;
+        // Find the <strong> that starts with the clicked term
+        const strongs = bodyRef.current.querySelectorAll("strong");
+        for (const el of strongs) {
+          const text = el.textContent.toLowerCase();
+          if (
+            text.startsWith(term.toLowerCase()) ||
+            text.includes(term.toLowerCase())
+          ) {
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+            el.style.background = "#fef08a";
+            setTimeout(() => (el.style.background = ""), 1500);
+            break;
+          }
+        }
+      }, 250);
+    };
+    window.addEventListener("glossary-open", handler);
+    return () => window.removeEventListener("glossary-open", handler);
+  }, []);
 
   return (
     <>
@@ -68,6 +95,7 @@ export default function Glossary() {
           </button>
         </div>
         <div
+          ref={bodyRef}
           className="glossary-body"
           dangerouslySetInnerHTML={{ __html: glossaryHtml }}
         />

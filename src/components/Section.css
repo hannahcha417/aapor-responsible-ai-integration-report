@@ -217,3 +217,41 @@
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
 }
+
+/* ── Glossary tooltip ────────────────────────── */
+.glossary-tip {
+  background-color: #dbeafe;
+  border-bottom: 1.5px dotted #3b82f6;
+  border-radius: 2px;
+  padding: 0 2px;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+}
+
+.glossary-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #f8fafc;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  white-space: normal;
+  width: max-content;
+  max-width: 320px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 6px;
+}
+
+.glossary-tip:hover::after {
+  opacity: 1;
+}
