@@ -254,3 +254,15 @@
 .glossary-tip:hover::after {
   opacity: 1;
 }
+
+/* ── Clickable Citations ─────────────────────── */
+.cite-link {
+  color: #2563eb;
+  cursor: pointer;
+  border-bottom: 1px dashed #93c5fd;
+  transition: background 0.15s;
+}
+
+.cite-link:hover {
+  background: #dbeafe;
+}

@@ -4,6 +4,7 @@ import Quiz from "./components/Quiz";
 import PasswordGate from "./components/PasswordGate";
 import TableOfContents from "./components/TableOfContents";
 import Glossary from "./components/Glossary";
+import References from "./components/References";
 import sections from "./data/sections.js";
 import "./App.css";
 
@@ -56,6 +57,7 @@ function App() {
     <PasswordGate>
       <TableOfContents />
       <Glossary />
+      <References />
       <div className="container">
         <header>
           <h1>

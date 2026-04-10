@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef } from "react";
 import glossaryTerms from "../data/glossaryTerms";
+import citationMap from "../data/citationMap";
 import "./Section.css";
 
 function extractSectionId(text) {
@@ -104,6 +105,80 @@ function applyGlossaryTooltips(root) {
   }
 }
 
+// ── Citation links (driven by citationMap) ──
+// Build a lookup: substring → refKey
+const citePhrases = [];
+for (const [refKey, phrases] of Object.entries(citationMap)) {
+  for (const phrase of phrases) {
+    citePhrases.push({ phrase, refKey });
+  }
+}
+// Sort longest first so longer matches take priority
+citePhrases.sort((a, b) => b.phrase.length - a.phrase.length);
+
+function applyCitationLinks(root) {
+  if (!root || citePhrases.length === 0) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const p = node.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (
+        p.closest(".cite-link") ||
+        p.closest(".glossary-tip") ||
+        p.closest(".references") ||
+        p.tagName === "A" ||
+        p.tagName === "SUMMARY" ||
+        p.tagName === "BUTTON"
+      )
+        return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  for (const node of textNodes) {
+    const text = node.nodeValue;
+    // Find all citation phrase matches in this text node
+    const matches = [];
+    for (const { phrase, refKey } of citePhrases) {
+      let idx = text.indexOf(phrase);
+      while (idx !== -1) {
+        // Check no overlap with existing matches
+        const end = idx + phrase.length;
+        if (!matches.some((m) => idx < m.end && end > m.start)) {
+          matches.push({ start: idx, end, phrase, refKey });
+        }
+        idx = text.indexOf(phrase, idx + 1);
+      }
+    }
+    if (matches.length === 0) continue;
+    matches.sort((a, b) => a.start - b.start);
+
+    const frag = document.createDocumentFragment();
+    let lastIndex = 0;
+    for (const m of matches) {
+      if (m.start > lastIndex)
+        frag.appendChild(
+          document.createTextNode(text.slice(lastIndex, m.start)),
+        );
+      const span = document.createElement("span");
+      span.className = "cite-link";
+      span.textContent = m.phrase;
+      span.addEventListener("click", () => {
+        window.dispatchEvent(
+          new CustomEvent("references-open", { detail: { refKey: m.refKey } }),
+        );
+      });
+      frag.appendChild(span);
+      lastIndex = m.end;
+    }
+    if (lastIndex < text.length)
+      frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+    node.parentNode.replaceChild(frag, node);
+  }
+}
+
 function useAutoIds(ref) {
   useEffect(() => {
     if (!ref.current) return;
@@ -127,6 +202,7 @@ function Subsection({ title, html }) {
   useAutoIds(contentRef);
   useEffect(() => {
     applyGlossaryTooltips(contentRef.current);
+    applyCitationLinks(contentRef.current);
   }, []);
 
   return (
@@ -163,7 +239,10 @@ const Section = forwardRef(function Section(
   const contentRef = useRef(null);
   useAutoIds(contentRef);
   useEffect(() => {
-    if (title !== "References") applyGlossaryTooltips(contentRef.current);
+    if (title !== "References") {
+      applyGlossaryTooltips(contentRef.current);
+      applyCitationLinks(contentRef.current);
+    }
   }, []);
 
   return (

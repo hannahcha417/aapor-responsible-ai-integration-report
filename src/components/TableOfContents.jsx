@@ -186,7 +186,6 @@ const tocData = [
       },
     ],
   },
-  { label: "References", id: "sec-7" },
 ];
 
 function TocItem({ item, depth = 0 }) {
