@@ -269,7 +269,7 @@ const citationMap = {
   "marguerit-2025": ["(Marguerit 2025)"],
 
   // Mellon, J., Bailey, J., Scott, R., Breckwoldt, J., Miori, M., & Schmedeman, P. (2024). Do
-  "mellon-2024": ["Mellon and colleagues (2024)"],
+  "mellon-2024": ["Mellon and colleagues (2024)", "Mellon et al., 2024"],
 
   // Metheney, E. A., & Yehle, L. (2024). Exploring the Potential Role of Generative AI in the
   "metheney-2024": ["Metheney and Yehle (2024)", "Yehle (2024)"],
@@ -415,13 +415,14 @@ const citationMap = {
   "wagner-2021": [],
 
   // von der Heyde, L., Haensch, A. C., & Wenz, A. (2025a). Vox populi, vox ai?
-  "vonderheyde-2025a": ["von der Heyde and colleagues (2025a))"],
-
-  // von der Heyde, L., Haensch, A. C., Weiß, B., & Daikeler, J. (2025). AIn't Nothing But a Survey?
-  "vonderheyde-2025": [],
+  "vonderheyde-2025a": ["von der Heyde and colleagues (2025a)"],
 
   // von der Heyde, L., Haensch, A. C., Weiß, B., & Daikeler, J. (2025b). AIn't Nothing But a Survey?
-  "vonderheyde-2025b": ["Heyde and colleagues (2025b)"],
+  "vonderheyde-2025b": [
+    "von der Heyde and colleagues (2025b)",
+    "von der Heyde et al., 2025",
+    "von der Heyde, 2025",
+  ],
 
   // Wan, A., Klyman, K., Kapoor, S., Maslej, N., Longpre, S., Xiong, B., Liang, P., & Bommasan
   "wan-2025": [],
