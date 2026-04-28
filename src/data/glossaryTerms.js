@@ -2,6 +2,14 @@
 // Each entry: { term, abbr (optional), definition }
 const glossaryTerms = [
   {
+    term: "Application Programming Interface",
+    abbr: "API",
+    definition:
+      "A defined way for software systems to communicate, allowing one program to request data or actions from another in a structured, standardized manner.",
+    example:
+      "An API call allows an application to send prompts to an LLM and receive generated text or other outputs programmatically.",
+  },
+  {
     term: "Artificial Intelligence",
     abbr: "AI",
     definition:

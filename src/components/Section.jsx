@@ -18,6 +18,9 @@ glossaryTerms.forEach(({ term, abbr, definition }) => {
   if (abbr) {
     glossaryLookup[abbr.toLowerCase()] = definition;
     allPhrases.push(abbr);
+    // Also match plural form (e.g., "APIs", "LLMs")
+    glossaryLookup[(abbr + "s").toLowerCase()] = definition;
+    allPhrases.push(abbr + "s");
   }
 });
 allPhrases.sort((a, b) => b.length - a.length);

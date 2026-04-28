@@ -3,6 +3,7 @@ import "./Glossary.css";
 
 const glossaryHtml = `
 <h3>General Terms</h3>
+<p><strong>Application Programming Interface (API):</strong> A defined way for software systems to communicate, allowing one program to request data or actions from another in a structured, standardized manner.<br/><em>Example:</em> An API call allows an application to send prompts to an LLM and receive generated text or other outputs programmatically.</p>
 <p><strong>Artificial Intelligence (AI):</strong> Broadly refers to computational systems designed to perform tasks that typically require human intelligence, such as language understanding, pattern recognition, prediction, or decision\u2011making.<br/><em>Example:</em> Using an algorithm to automatically classify open\u2011ended survey responses by topic.</p>
 <p><strong>Machine Learning (ML):</strong> A subset of AI in which models learn patterns from data rather than following explicitly programmed rules.<br/><em>Example:</em> A model trained on labeled survey texts learns to predict sentiment in new responses.</p>
 <p><strong>Generative AI (GenAI):</strong> A subset of ML, it refers to AI systems capable of producing novel content\u2014such as text, images, audio, or synthetic data\u2014rather than retrieving existing material.<br/><em>Example:</em> A GenAI system generates alternative question wordings based on a prompt.</p>
